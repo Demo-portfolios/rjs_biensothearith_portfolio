@@ -10,7 +10,9 @@ import angular from '../assets/svg/skills/angular.svg'
 import javascript from '../assets/svg/skills/javascript.svg'
 import nextJS from '../assets/svg/skills/nextJS.svg'
 import nuxtJS from '../assets/svg/skills/nuxtJS.svg'
+import nodejs from '../assets/svg/skills/nodejs.svg'
 import react from '../assets/svg/skills/react.svg'
+import reactNative from '../assets/svg/skills/react-native.svg'
 import svelte from '../assets/svg/skills/svelte.svg'
 import typescript from '../assets/svg/skills/typescript.svg'
 import vue from '../assets/svg/skills/vue.svg'
@@ -227,6 +229,10 @@ export const skillsImage = (skill) => {
             return wolframalpha;
         case 'canva':
             return canva;
+        case 'react native':
+            return reactNative;
+        case 'node js':
+            return nodejs;
         default:
             break;
     }

@@ -1,7 +1,7 @@
 export const contactsData = {
-    email: 'sreerag.rajan5@gmail.com',
-    phone: '+91 9663437669',
-    address: '412 Ground Floor, Indraprastha Colony, Sector 30-33, Faridabad, Haryana, 121003',
-
-    sheetAPI: ''
+    email: 'bien_sothearith@yahoo.com',
+    phone: '+855 70 594 606',
+    address: 'Phnom Penh, Cambodia',
+    sheetAPI: '',
+    API:"https://api.biensothearith1702.store"
 }

@@ -133,14 +133,14 @@ function Contacts() {
         e.preventDefault();
 
         if (name && email && message) {
-            if (isEmail(email)) {
+            if (email) {
                 const responseData = {
                     name: name,
                     email: email,
                     message: message,
                 };
 
-                axios.post(contactsData.sheetAPI, responseData).then((res) => {
+                axios.post(`${contactsData.API}/send-telegram`, responseData).then((res) => {
                     console.log('success');
                     setSuccess(true);
                     setErrMsg('');
@@ -169,7 +169,7 @@ function Contacts() {
             <div className='contacts--container'>
                 <h1 style={{ color: theme.primary }}>Contacts</h1>
                 <div className='contacts-body'>
-                    {/* <div className='contacts-form'>
+                    <div className='contacts-form'>
                         <form onSubmit={handleContactForm}>
                             <div className='input-container'>
                                 <label htmlFor='Name' className={classes.label}>
@@ -186,17 +186,17 @@ function Contacts() {
                             </div>
                             <div className='input-container'>
                                 <label
-                                    htmlFor='Email'
+                                    htmlFor='Telegram'
                                     className={classes.label}
                                 >
-                                    Email
+                                    Telegram
                                 </label>
                                 <input
-                                    placeholder='John@doe.com'
+                                    placeholder='@biensothearith'
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    type='email'
-                                    name='Email'
+                                    type='text'
+                                    name='Telegram'
                                     className={`form-input ${classes.input}`}
                                 />
                             </div>
@@ -278,11 +278,11 @@ function Contacts() {
                                 message={errMsg}
                             />
                         </Snackbar>
-                    </div> */}
+                    </div>
 
                     <div className='contacts-details'>
                         <a
-                            // href={`mailto:${contactsData.email}`}
+                            href={`mailto:${contactsData.email}`}
                             className='personal-details'
                         >
                             <div className={classes.detailsIcon}>
@@ -293,7 +293,7 @@ function Contacts() {
                             </p>
                         </a>
                         <a
-                            // href={`tel:${contactsData.phone}`}
+                            href={`tel:${contactsData.phone}`}
                             className='personal-details'
                         >
                             <div className={classes.detailsIcon}>
@@ -363,6 +363,16 @@ function Contacts() {
                                     <FaMediumM aria-label='Medium' />
                                 </a>
                             )}
+                            {socialsData.youtube && (
+                                <a
+                                    href={socialsData.youtube}
+                                    target='_blank'
+                                    rel='noreferrer'
+                                    className={classes.socialIcon}
+                                >
+                                    <FaYoutube aria-label='YouTube' />
+                                </a>
+                            )}
                             {/*
                             {socialsData.blogger && (
                                 <a
@@ -374,16 +384,7 @@ function Contacts() {
                                     <FaBloggerB aria-label='Blogger' />
                                 </a>
                             )}
-                            {socialsData.youtube && (
-                                <a
-                                    href={socialsData.youtube}
-                                    target='_blank'
-                                    rel='noreferrer'
-                                    className={classes.socialIcon}
-                                >
-                                    <FaYoutube aria-label='YouTube' />
-                                </a>
-                            )}
+                            
                             {socialsData.reddit && (
                                 <a
                                     href={socialsData.reddit}
